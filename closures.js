@@ -233,26 +233,72 @@ to 5. What we need to do is console.log(i) so that it logs ( 0 then 1 then 2
 then 3, etc). Run this code in your console to see what the output is. */
 
 // To make this code work you will need to create a new scope for every iteration.
+
+
+
 function timeOutCounter() {
+ for (var i = 0; i <= 5; i++) {
+   newScope(i);
+ }
 
-  for (var i = ; i <= 5; i++) {
-    setTimeout(function() {
-      console.log(i);
+ function newScope(i) {
 
-    }, i * 1000)
-    var scope = newScope(i);
-    scope(i);
-  }
-
-  function newScope(i) {
-    var idex = i
-    return function () {
-      console.log(idex);
-    }
-  }
-
+   setTimeout(function() {
+     console.log(i);
+   }, i * 1000)
+ }
 }
 timeOutCounter();
+
+
+
+
+
+
+
+// var timeOutCounter = function() {
+//   var i = 0;
+//   function newScope(i) {
+//     console.log(i)
+//   }
+//
+//
+//
+//  return function () {
+//    for (i; i <= 5; i++) {
+//      setTimeout(function() {
+//        console.log(i);
+//      }, i * 1000)
+//    }
+//    newScope(i);
+//
+//  }
+// }
+// timeOutCounter();
+
+
+
+
+// function timeOutCounter() {
+//
+//   for (var i = 0; i <= 5; i++) {
+//     setTimeout(function() {
+//       console.log(i);
+//
+//     }, i * 1000)
+//     var scope = newScope(i);
+//     scope(i);
+//   }
+//
+//   function newScope(i) {
+//     var idex = i
+//     return function () {
+//       console.log(idex);
+//     }
+//   }
+//
+// }
+// timeOutCounter();
 
 
 
@@ -282,8 +328,7 @@ for (var i = 0 ; i < 6 ; i++){
 
 
   //Make the following code work
-console.log("this ");
-  console.log(funcArray[0]()); //0
+
   funcArray[0]() //0
   funcArray[1]() //1
   funcArray[2]() //2
