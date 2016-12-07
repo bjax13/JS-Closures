@@ -234,15 +234,23 @@ then 3, etc). Run this code in your console to see what the output is. */
 
 // To make this code work you will need to create a new scope for every iteration.
 function timeOutCounter() {
-  for (var i = 0; i <= 5; i++) {
+
+  for (var i = ; i <= 5; i++) {
     setTimeout(function() {
       console.log(i);
+
     }, i * 1000)
+    var scope = newScope(i);
+    scope(i);
   }
 
   function newScope(i) {
-    console.log(i)
+    var idex = i
+    return function () {
+      console.log(idex);
+    }
   }
+
 }
 timeOutCounter();
 
@@ -257,9 +265,25 @@ timeOutCounter();
 
 var funcArray = [];
 
-/*
-  Make the following code work
 
+
+
+function whateva(index) {
+  var total = index;
+  return function(){
+    return index
+  }
+}
+
+for (var i = 0 ; i < 6 ; i++){
+  var test = i;
+  funcArray[i]= whateva(i);
+    }
+
+
+  //Make the following code work
+console.log("this ");
+  console.log(funcArray[0]()); //0
   funcArray[0]() //0
   funcArray[1]() //1
   funcArray[2]() //2
@@ -267,5 +291,4 @@ var funcArray = [];
   funcArray[4]() //4
   funcArray[5]() //5
 
-  *Hint: Don't let this fool you. Break down what's really happening here.
-*/
+  //Hint: Don't let this fool you. Break down what's really happening here.
