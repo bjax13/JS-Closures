@@ -206,12 +206,13 @@ var module = (function() {
 
   return {
     // Code here.
+    publicMethod: privateMethod
   };
 
 })();
 
 // Uncomment this after you create your public method
-//   module.publicMethod();
+  module.publicMethod();
 
 
 
