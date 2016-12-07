@@ -15,10 +15,13 @@ closure over the name variable. Invoke outer saving the return value into
 another variable called 'inner'. */
 
 // Code Here
+var inner = outer();
 
 //Once you do that, invoke inner.
 
 //Code Here
+
+inner();
 
 
 
@@ -48,6 +51,9 @@ Create a makeCall function that when invoked logs 'Calling Jake at 435-215-9248'
 in your console. */
 
   //Code Here
+var makeCall = callFriend();
+
+makeCall();
 
 
 
@@ -68,12 +74,25 @@ properly. */
 
 //Code Here
 
-//Uncomment this once you make your function
-//   var count = makeCounter();
-//   count(); // 1
-//   count(); // 2
-//   count(); // 3
-//   count(); // 4
+function makeCounter() {
+  var count = 0;
+
+  return function (){
+    count++;
+    return count;
+  }
+
+}
+
+
+
+
+// Uncomment this once you make your function
+  var count = makeCounter();
+  count(); // 1
+  count(); // 2
+  count(); // 3
+  count(); // 4
 
 
 
@@ -96,17 +115,28 @@ function is responsible for decrementing the value by one. You will need to use
 the module pattern to achieve this. */
 
 function counterFactory(value) {
-
+  var counter =value;
   // Code here.
-
+  function incFnc(){
+    counter++;
+    return counter;
+  }
+  function decFnc(){
+    counter--;
+    return counter;
+  }
 
   return {
+    inc: incFnc,
+    dec: decFnc
   }
 }
 
 
-counter = counterFactory(10);
+var counter = counterFactory(10);
 
+counter.inc();
+counter.dec();
 
 
 
