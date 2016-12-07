@@ -311,6 +311,12 @@ timeOutCounter();
 
 var funcArray = [];
 
+// for (var i =0; i <6; i++){
+//   (function (i) {
+//     funcArray.push(function () {return (i);})
+//   })(i);
+// }
+
 
 
 
